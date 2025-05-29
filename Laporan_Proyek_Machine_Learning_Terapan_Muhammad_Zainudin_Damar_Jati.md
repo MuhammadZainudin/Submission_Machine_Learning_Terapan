@@ -66,11 +66,11 @@ Dataset digunakan dari [Kaggle - California Housing Prices](https://www.kaggle.c
 
 * Distribusi fitur numerik sebelum preprocessing:
 
-  ![Distribusi Fitur Numerik](images/distribusi%20fitur%20numerik.png)
+  ![Distribusi Fitur Numerik](imeges/distribusi%20fitur%20numerik.png)
 
 * Korelasi antar fitur numerik:
 
-  ![Korelasi Fitur Numerik](images/korelasi%20antar%20fitur%20numerik.png)
+  ![Korelasi Fitur Numerik](imeges/korelasi%20antar%20fitur%20numerik.png)
 
 ## Data Preparation
 
@@ -124,11 +124,11 @@ Nilai terbaik dari hasil tuning yang digunakan untuk model final:
 
 * Prediksi vs Realita:
 
-  ![Prediksi vs Realita](images/prediksivrealita.png)
-
+   ![Prediksi vs Realita](imeges/prediksivrealita.png)
+  
 * Distribusi Residual:
 
-  ![Distribusi Residual](images/distribusi%20residual.png)
+  ![Distribusi Residual](imeges/distribusi%20residual.png)
 
 * Feature Importance:
 
