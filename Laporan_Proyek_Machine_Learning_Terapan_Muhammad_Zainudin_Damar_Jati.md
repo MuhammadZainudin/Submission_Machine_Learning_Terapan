@@ -1,7 +1,3 @@
-Berikut adalah versi revisi dari **laporan proyek Machine Learning** kamu, yang sudah **diperbarui dengan penjelasan** untuk setiap grafik sesuai permintaan. Penempatan narasi disisipkan tepat sebelum setiap visualisasi agar pembaca memahami konteks sebelum melihat gambar.
-
----
-
 # Laporan Proyek Machine Learning
 
 **Nama:** Muhammad Zainudin Damar Jati
@@ -178,6 +174,3 @@ Model ini siap di-deploy sebagai alat bantu pengambilan keputusan dalam sektor p
 
 **Dataset**: [Kaggle - California Housing Prices](https://www.kaggle.com/datasets/camnugent/california-housing-prices)
 
----
-
-Jika kamu ingin file Markdown atau PDF dari laporan ini, cukup beri tahu saja, dan saya bantu hasilkan.
