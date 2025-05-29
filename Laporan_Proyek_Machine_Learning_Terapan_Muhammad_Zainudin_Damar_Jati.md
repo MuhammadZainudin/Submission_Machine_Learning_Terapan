@@ -1,4 +1,4 @@
-Berikut adalah versi laporanmu yang sudah ditambahkan gambar sesuai dengan struktur dan alur konten. Gambar dimasukkan menggunakan sintaks Markdown dan diletakkan agar nyambung dengan narasi.
+Berikut adalah versi revisi dari **laporan proyek Machine Learning** kamu, yang sudah **diperbarui dengan penjelasan** untuk setiap grafik sesuai permintaan. Penempatan narasi disisipkan tepat sebelum setiap visualisasi agar pembaca memahami konteks sebelum melihat gambar.
 
 ---
 
@@ -64,13 +64,17 @@ Dataset digunakan dari [Kaggle - California Housing Prices](https://www.kaggle.c
 
 ### Visualisasi Awal:
 
-* Distribusi fitur numerik sebelum preprocessing:
+#### Distribusi Fitur Numerik
 
-  ![Distribusi Fitur Numerik](imeges/distribusi%20fitur%20numerik.png)
+Grafik ini menggambarkan distribusi dari 12 fitur numerik dalam dataset California Housing. Sebagian besar fitur menunjukkan pola distribusi yang tidak normal (miring ke kanan), terutama pada variabel absolut seperti `total_rooms`, `population`, dan `households`, yang menunjukkan adanya outlier. Sementara itu, fitur rasio seperti `bedrooms_per_room` dan `population_per_household` cenderung memiliki distribusi yang lebih mendekati normal. Lonjakan di nilai tertentu seperti pada `housing_median_age` dan `median_house_value` mengindikasikan adanya batas data, seperti sensor atau clipping.
 
-* Korelasi antar fitur numerik:
+![Distribusi Fitur Numerik](imeges/distribusi%20fitur%20numerik.png)
 
-  ![Korelasi Fitur Numerik](imeges/korelasi%20antar%20fitur%20numerik.png)
+#### Korelasi antar Fitur Numerik
+
+Grafik ini adalah heatmap korelasi Pearson antar fitur numerik. Terlihat beberapa korelasi sangat tinggi seperti `total_rooms` dengan `total_bedrooms`, serta `households` dengan `population`. Hal ini menunjukkan potensi multikolinearitas dalam model regresi jika semua fitur digunakan tanpa seleksi. Korelasi negatif seperti `bedrooms_per_room` terhadap `median_income` memberikan insight bahwa daerah dengan rasio kamar tidur tinggi cenderung berpenghasilan lebih rendah. Korelasi lemah antara `median_house_value` dan fitur seperti `total_rooms` menunjukkan bahwa nilai rumah tidak hanya ditentukan oleh ukuran fisik, melainkan juga faktor eksternal seperti lokasi atau pendapatan.
+
+![Korelasi Fitur Numerik](imeges/korelasi%20antar%20fitur%20numerik.png)
 
 ## Data Preparation
 
@@ -122,17 +126,21 @@ Nilai terbaik dari hasil tuning yang digunakan untuk model final:
 
 ### Visualisasi Evaluasi:
 
-* Prediksi vs Realita:
+#### Prediksi vs Nilai Aktual (Scatter Plot)
 
-   ![Prediksi vs Realita](imeges/prediksivrealita.png)
-  
-* Distribusi Residual:
+Scatter plot ini menunjukkan hubungan antara harga rumah aktual dan hasil prediksi model. Sebagian besar titik berada di dekat garis ideal, yang menandakan prediksi cukup akurat. Namun, terlihat bahwa error cenderung meningkat pada harga rumah yang lebih tinggi, mengindikasikan heteroskedastisitas. Penumpukan titik di ujung atas grafik menunjukkan adanya batas maksimum harga rumah dalam dataset, yang dapat memengaruhi performa model pada segmen harga tinggi.
 
-  ![Distribusi Residual](imeges/distribusi%20residual.png)
+![Prediksi vs Realita](imeges/prediksivrealita.png)
 
-* Feature Importance:
+#### Distribusi Residual
 
-  (disarankan ditambahkan juga jika ada gambar visualisasi importance, misal: images/feature\_importance.png)
+Grafik histogram ini memperlihatkan distribusi residual model regresi. Distribusinya tampak simetris dan berbentuk lonceng, dengan rata-rata mendekati nol, menunjukkan bahwa kesalahan model tersebar secara acak tanpa bias sistematis. Hal ini menunjukkan bahwa model cukup baik dalam memprediksi data secara umum dan residual mengikuti asumsi normalitas, yang penting untuk validitas beberapa metode statistik lanjutan.
+
+![Distribusi Residual](imeges/distribusi%20residual.png)
+
+#### Feature Importance
+
+(disarankan ditambahkan juga jika ada gambar visualisasi importance, misal: images/feature\_importance.png)
 
 ## Deployment: Prediksi Rumah Baru
 
@@ -168,4 +176,4 @@ Model ini siap di-deploy sebagai alat bantu pengambilan keputusan dalam sektor p
 
 ---
 
-Jika kamu juga punya gambar feature importance atau residuals dengan plot tambahan, kamu bisa beri tahu saya agar saya bantu menambahkan secara kontekstual juga.
+Jika kamu ingin file Markdown atau PDF dari laporan ini, cukup beri tahu saja, dan saya bantu hasilkan.
