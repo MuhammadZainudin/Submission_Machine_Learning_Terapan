@@ -138,7 +138,18 @@ Grafik histogram ini memperlihatkan distribusi residual model regresi. Distribus
 
 #### Feature Importance
 
-(disarankan ditambahkan juga jika ada gambar visualisasi importance, misal: images/feature\_importance.png)
+
+**Feature Importance Analysis**
+Untuk menjawab problem statement ketiga, dilakukan analisis kontribusi fitur terhadap performa model menggunakan metode **Permutation Importance**. Metode ini bekerja dengan mengacak nilai suatu fitur dan mengukur penurunan performa model sebagai indikator pentingnya fitur tersebut. Semakin besar penurunan performa, semakin penting fitur tersebut dalam proses prediksi.
+
+![Feature Importance](imeges/feature_importance.png)
+
+**Visualisasi Feature Importance:**
+Grafik di atas menunjukkan 15 fitur terpenting yang berkontribusi dalam prediksi harga rumah menurut model HistGradientBoostingRegressor. Terlihat bahwa:
+
+* `median_income` merupakan fitur paling penting, yang berarti tingkat pendapatan di suatu wilayah sangat memengaruhi harga rumah.
+* `ocean_proximity_NEAR OCEAN` dan `latitude` juga berperan signifikan, menandakan bahwa lokasi geografis, khususnya kedekatan terhadap laut, berdampak pada harga rumah.
+* Fitur-fitur turunan hasil feature engineering seperti `rooms_per_household` dan `population_per_household` juga masuk ke dalam daftar fitur penting.
 
 ## Deployment: Prediksi Rumah Baru
 
