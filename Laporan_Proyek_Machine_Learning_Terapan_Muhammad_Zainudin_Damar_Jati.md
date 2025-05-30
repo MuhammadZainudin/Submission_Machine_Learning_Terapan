@@ -1,6 +1,4 @@
-# Laporan Proyek Machine Learning
-
-**Nama:** Muhammad Zainudin Damar Jati
+# Laporan Proyek Machine Learning - **Nama:** Muhammad Zainudin Damar Jati
 
 ## Domain Proyek
 
