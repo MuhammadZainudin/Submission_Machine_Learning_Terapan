@@ -2,11 +2,9 @@
 
 ## Domain Proyek
 
-Prediksi harga rumah merupakan komponen penting dalam pengambilan keputusan di bidang properti, investasi, dan perencanaan keuangan. Kompleksitas faktor-faktor seperti lokasi, demografi, dan karakteristik fisik properti menjadikan metode prediktif berbasis machine learning sebagai solusi yang menjanjikan untuk menghasilkan estimasi harga yang lebih akurat.
+Prediksi harga rumah menjadi hal penting dalam pengambilan keputusan di bidang properti, investasi, dan perencanaan keuangan. Dengan semakin kompleksnya faktor yang memengaruhi harga rumah, teknologi machine learning dapat memberikan solusi berbasis data yang lebih akurat dan efisien. Proyek ini bertujuan membangun model prediktif menggunakan data perumahan di California dengan fitur-fitur demografis dan karakteristik properti.
 
-Proyek ini bertujuan membangun model prediktif menggunakan data perumahan di California, dengan memanfaatkan fitur demografis dan properti sebagai input.
-
-**Referensi:**
+Referensi:
 Zhang, Y., Guhathakurta, S., & Khalil, E.B. (2019). A machine learning approach to real estate price prediction: A case study of Atlanta housing market. *Journal of Real Estate Research*.
 
 ## Business Understanding
@@ -15,13 +13,13 @@ Zhang, Y., Guhathakurta, S., & Khalil, E.B. (2019). A machine learning approach 
 
 1. Bagaimana membangun model prediksi harga rumah yang akurat dari data demografi dan properti?
 2. Seberapa baik performa model dalam memprediksi harga rumah dibandingkan data sebenarnya?
-3. Fitur-fitur mana yang paling berkontribusi terhadap harga rumah di California?
+3. Fitur-fitur mana yang paling berkontribusi terhadap harga rumah di California berdasarkan analisis Permutation Importance?
 
 ### Goals
 
 1. Mengembangkan model machine learning untuk memprediksi harga rumah secara akurat.
 2. Menilai performa model menggunakan metrik R², RMSE, MAE, dan validasi silang.
-3. Mengidentifikasi fitur-fitur yang paling berpengaruh terhadap harga rumah menggunakan analisis feature importance dari model.
+3. Mengidentifikasi fitur-fitur yang paling berpengaruh terhadap harga rumah menggunakan analisis Permutation Importance dari model.
 
 ### Solution Statements
 
@@ -35,12 +33,13 @@ Dataset digunakan dari [Kaggle - California Housing Prices](https://www.kaggle.c
 
 ### Fitur:
 
-* `longitude`, `latitude` : Lokasi geografis
-* `housing_median_age` : Usia median rumah
-* `total_rooms`, `total_bedrooms` : Jumlah ruangan dan kamar tidur
-* `population`, `households` : Jumlah penduduk dan rumah tangga
-* `median_income` : Pendapatan median
-* `ocean_proximity` : Kedekatan rumah terhadap laut (kategori)
+* `longitude`, `latitude`: Lokasi geografis
+* `housing_median_age`: Usia median rumah
+* `total_rooms`, `total_bedrooms`: Jumlah ruangan dan kamar tidur
+* `population`, `households`: Jumlah penduduk dan rumah tangga
+* `median_income`: Pendapatan median
+* `ocean_proximity`: Kedekatan rumah terhadap laut (kategori)
+
 
 ### Target:
 
@@ -62,7 +61,7 @@ Dataset digunakan dari [Kaggle - California Housing Prices](https://www.kaggle.c
 
 ![Distribusi Fitur Numerik](imeges/distribusi%20fitur%20numerik.png)
 
-Grafik ini menggambarkan distribusi dari 12 fitur numerik dalam dataset California Housing. Sebagian besar fitur menunjukkan pola distribusi yang tidak normal (miring ke kanan), terutama pada variabel absolut seperti `total_rooms`, `population`, dan `households`, yang menunjukkan adanya outlier. Sementara itu, fitur rasio seperti `bedrooms_per_room` dan `population_per_household` cenderung memiliki distribusi yang lebih mendekati normal. Lonjakan di nilai tertentu seperti pada `housing_median_age` dan `median_house_value` mengindikasikan adanya batas data, seperti sensor atau clipping.
+Grafik ini menggambarkan distribusi dari 12 fitur numerik dalam dataset California Housing. Sebagian besar fitur menunjukkan pola distribusi yang tidak normal (miring ke kanan), terutama pada variabel absolut seperti `total_rooms`, `population`, dan `households`, yang menunjukkan adanya outlier. Sementara itu, fitur rasio seperti `bedrooms_per_room` dan `population_per_household` cenderung memiliki distribusi yang lebih mendekati normal. Lonjakan di nilai tertentu seperti pada `housing_median_age` dan `median_house_value` mengindikasikan adanya batas data, seperti sensor atau clipping. Titik-titik mendekati garis diagonal menandakan akurasi yang baik, meskipun error meningkat pada harga tinggi karena heteroskedastisitas.
 
 
 #### Korelasi antar Fitur Numerik
@@ -140,9 +139,6 @@ Grafik histogram ini memperlihatkan distribusi residual model regresi. Distribus
 
 ![Feature Importance](imeges/feature_importance.png)
 
-**Feature Importance Analysis**
-Untuk menjawab problem statement ketiga, dilakukan analisis kontribusi fitur terhadap performa model menggunakan metode **Permutation Importance**. Metode ini bekerja dengan mengacak nilai suatu fitur dan mengukur penurunan performa model sebagai indikator pentingnya fitur tersebut. Semakin besar penurunan performa, semakin penting fitur tersebut dalam proses prediksi.
-
 **Visualisasi Feature Importance:**
 Grafik di atas menunjukkan 15 fitur terpenting yang berkontribusi dalam prediksi harga rumah menurut model *HistGradientBoostingRegressor*. Beberapa insight utama dari grafik tersebut:
 
@@ -173,13 +169,14 @@ Model mampu memberikan estimasi harga rumah yang realistis berdasarkan fitur inp
 
 ## Kesimpulan
 
-Proyek ini berhasil membangun model prediksi harga rumah di California yang akurat menggunakan algoritma HistGradientBoostingRegressor. Model ini mampu menjelaskan lebih dari 84% variansi data dan menghasilkan error prediksi yang relatif kecil.
+Proyek ini berhasil membangun model prediksi harga rumah di California dengan akurasi yang tinggi menggunakan algoritma **HistGradientBoostingRegressor**. Model akhir mampu menjelaskan **lebih dari 84% variansi** harga rumah dan menghasilkan **kesalahan prediksi yang relatif kecil**, seperti ditunjukkan oleh nilai RMSE dan MAE.
 
-Seluruh proses mulai dari eksplorasi data, penanganan missing value, transformasi target, hingga tuning model dilakukan secara sistematis. Evaluasi model menunjukkan performa stabil melalui validasi silang.
+Seluruh tahapan — mulai dari eksplorasi data, penanganan missing value, feature engineering, transformasi target, hingga tuning hyperparameter — dilakukan secara sistematis dan terstruktur. Hasil evaluasi model melalui validasi silang juga menunjukkan **performa yang stabil** terhadap data baru.
 
-Lebih lanjut, analisis feature importance menjawab problem statement ketiga dengan menunjukkan bahwa `median_income`, `ocean_proximity`, dan `latitude` merupakan fitur yang paling memengaruhi harga rumah.
+Lebih lanjut, analisis **Permutation Importance** mengungkapkan bahwa fitur `latitude` merupakan **kontributor paling dominan** dalam prediksi harga rumah, diikuti oleh `median_income`, `longitude`, dan `ocean_proximity_INLAND`. Hal ini menunjukkan bahwa **lokasi geografis dan kondisi ekonomi wilayah** merupakan faktor penentu utama dalam penilaian properti di California. Selain itu, fitur turunan seperti `population_per_household` dan `bedrooms_per_room` juga terbukti relevan, menegaskan pentingnya rasio demografis dalam model prediksi.
 
-Model ini siap di-deploy sebagai alat bantu pengambilan keputusan dalam sektor properti dan investasi.
+Dengan performa yang baik dan interpretabilitas yang jelas, model ini **siap di-deploy** sebagai alat bantu pengambilan keputusan di sektor properti dan investasi.
+
 
 **Dataset**: [Kaggle - California Housing Prices](https://www.kaggle.com/datasets/camnugent/california-housing-prices)
 
